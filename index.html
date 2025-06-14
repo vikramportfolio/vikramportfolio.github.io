@@ -22,7 +22,7 @@
         nav {
             background-color: #1e3a8a;
             color: white;
-            padding: 1rem;
+            padding: 0.75rem 1rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -39,25 +39,43 @@
         }
 
         nav h1 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: bold;
         }
 
         nav ul {
-            display: flex;
+            display: none;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1rem;
+            flex-direction: column;
+            background-color: #1e3a8a;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul.active {
+            display: flex;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
             color: #a5b4fc;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -90,30 +108,34 @@
         }
 
         #home h1 {
-            font-size: 2.25rem;
+            font-size: 1.75rem;
             font-weight: bold;
             margin-bottom: 1rem;
             animation: fadeIn 1s ease-in;
         }
 
         #home p {
-            font-size: 1.125rem;
+            font-size: 1rem;
             margin-bottom: 1.5rem;
         }
 
         #home .btn-group {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         #home a {
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 9999px;
             transition: all 0.3s;
+            width: 100%;
+            max-width: 200px;
+            text-align: center;
         }
 
         #home a:first-child {
@@ -137,7 +159,7 @@
 
         /* About Section */
         #about {
-            padding: 4rem 1rem;
+            padding: 3rem 1rem;
             background-color: white;
         }
 
@@ -147,22 +169,22 @@
         }
 
         #about h2 {
-            font-size: 1.875rem;
+            font-size: 1.5rem;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         #about .content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         #about img {
-            width: 12rem;
-            height: 12rem;
+            width: 10rem;
+            height: 10rem;
             border-radius: 50%;
             object-fit: cover;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -170,15 +192,15 @@
         }
 
         #about p {
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: #4b5563;
-            max-width: 48rem;
+            max-width: 90%;
             text-align: center;
         }
 
         /* Portfolio Section */
         #portfolio {
-            padding: 4rem 1rem;
+            padding: 3rem 1rem;
             background-color: #f3f4f6;
         }
 
@@ -188,16 +210,16 @@
         }
 
         #portfolio h2 {
-            font-size: 1.875rem;
+            font-size: 1.5rem;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .card {
@@ -216,16 +238,16 @@
 
         .card img {
             width: 100%;
-            height: 12rem;
+            height: 10rem;
             object-fit: cover;
         }
 
         .card .content {
-            padding: 1rem;
+            padding: 0.75rem;
         }
 
         .card h3 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -239,11 +261,12 @@
 
         .card p {
             color: #6b7280;
+            font-size: 0.9rem;
         }
 
         /* Contact Section */
         #contact {
-            padding: 4rem 1rem;
+            padding: 3rem 1rem;
             background-color: #1e3a8a;
             color: white;
             text-align: center;
@@ -255,21 +278,21 @@
         }
 
         #contact h2 {
-            font-size: 1.875rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         #contact p {
-            font-size: 1.125rem;
-            max-width: 48rem;
+            font-size: 1rem;
+            max-width: 90%;
             margin: 0 auto 1.5rem;
         }
 
         #contact .contact-links {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-bottom: 1.5rem;
         }
 
@@ -280,6 +303,7 @@
             align-items: center;
             justify-content: center;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
 
         #contact a:hover {
@@ -292,13 +316,14 @@
 
         #contact .resume-btn {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1rem;
             background-color: white;
             color: #1e3a8a;
             border-radius: 9999px;
             font-weight: 600;
             text-decoration: none;
             transition: background-color 0.3s;
+            font-size: 0.9rem;
         }
 
         #contact .resume-btn:hover {
@@ -309,8 +334,9 @@
         footer {
             background-color: #1f2937;
             color: white;
-            padding: 1rem;
+            padding: 0.75rem;
             text-align: center;
+            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -326,12 +352,47 @@
 
         /* Responsive Design */
         @media (min-width: 768px) {
+            nav h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
             #home h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
 
             #home p {
                 font-size: 1.25rem;
+            }
+
+            #home .btn-group {
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            #home a {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                width: auto;
+            }
+
+            #about h2 {
+                font-size: 1.875rem;
             }
 
             #about .content {
@@ -341,10 +402,42 @@
 
             #about p {
                 text-align: left;
+                max-width: 48rem;
+                font-size: 1.125rem;
+            }
+
+            #about img {
+                width: 12rem;
+                height: 12rem;
+            }
+
+            #portfolio h2 {
+                font-size: 1.875rem;
             }
 
             .grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+
+            .card img {
+                height: 12rem;
+            }
+
+            .card h3 {
+                font-size: 1.25rem;
+            }
+
+            .card p {
+                font-size: 1rem;
+            }
+
+            #contact h2 {
+                font-size: 1.875rem;
+            }
+
+            #contact p {
+                font-size: 1.125rem;
+                max-width: 48rem;
             }
 
             #contact .contact-links {
@@ -352,12 +445,20 @@
                 justify-content: center;
                 gap: 1.5rem;
             }
+
+            #contact a {
+                font-size: 1rem;
+            }
+
+            #contact .resume-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 767px) {
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
+            .menu-toggle {
+                display: block;
             }
         }
     </style>
@@ -367,6 +468,7 @@
     <nav>
         <div class="container">
             <h1>Vikram Bhardwaj</h1>
+            <i class="fas fa-bars menu-toggle"></i>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -393,7 +495,7 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="content">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="About Vikram">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGVO_dnqosp-w/profile-displayphoto-shrink_800_800/B4EZcsfSfbHYAk-/0/1748798090464?e=1755129600&v=beta&t=VjVo3J7BTMaGOtzB4qfi6qJRNBOW4jsJafRCJvQca_4" alt="About Vikram">
                 <p>I'm Vikram Bhardwaj, a passionate creative with over 6 years of experience in Graphic Design, Video Editing, and Digital Marketing. I specialize in crafting visually stunning designs, engaging video content, and strategic marketing campaigns that drive results and connect with audiences.</p>
             </div>
         </div>
@@ -406,7 +508,7 @@
             <div class="grid">
                 <!-- Graphic Design -->
                 <a href="graphic-design.html" class="card">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b79906a8167" alt="Graphic Design Sample">
+                    <img src="https://staticlearn.shine.com/l/m/images/blog/benefits_of_learning_graphic_design.webp" alt="Graphic Design Sample">
                     <div class="content">
                         <h3><i class="fas fa-paint-brush"></i> Graphic Design</h3>
                         <p>Designed vibrant posters, logos, and branding materials for various clients, blending creativity with functionality.</p>
@@ -414,7 +516,7 @@
                 </a>
                 <!-- Video Editing -->
                 <a href="video-editing.html" class="card">
-                    <img src="https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb" alt="Video Editing Sample">
+                    <img src="https://www.storyblocks.com/resources/wp-content/uploads/2024/05/videoeditorskills_thumbnail.jpg" alt="Video Editing Sample">
                     <div class="content">
                         <h3><i class="fas fa-video"></i> Video Editing</h3>
                         <p>Edited promotional videos and social media content with dynamic transitions and storytelling techniques.</p>
@@ -422,7 +524,7 @@
                 </a>
                 <!-- Digital Marketing -->
                 <a href="digital-marketing.html" class="card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bcc17c73f747" alt="Digital Marketing Sample">
+                    <img src="https://s3-ap-south-1.amazonaws.com/ricedigitals3bucket/AUPortalContent/2021/05/22121232/Untitled-design-391.png" alt="Digital Marketing Sample">
                     <div class="content">
                         <h3><i class="fas fa-chart-line"></i> Digital Marketing</h3>
                         <p>Created targeted ad campaigns and SEO strategies to boost online engagement and conversions.</p>
@@ -452,7 +554,7 @@
         <p>© 2025 Vikram Bhardwaj. All rights reserved.</p>
     </footer>
 
-    <!-- Smooth Scroll Script -->
+    <!-- Smooth Scroll and Menu Toggle Script -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -460,7 +562,12 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                document.querySelector('nav ul').classList.remove('active');
             });
+        });
+
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
         });
     </script>
 </body>
