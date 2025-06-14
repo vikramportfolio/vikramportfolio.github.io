@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikram Bhardwaj - Digital Marketing Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a5b4fc;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 6rem 1rem 4rem;
+            background-color: white;
+        }
+
+        .gallery .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        .lightbox .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox .close-btn:hover {
+            color: #a5b4fc;
+        }
+
+        .lightbox .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 0.5rem;
+        }
+
+        .lightbox .nav-btn:hover {
+            color: #a5b4fc;
+        }
+
+        .lightbox .prev-btn {
+            left: 1rem;
+        }
+
+        .lightbox .next-btn {
+            right: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .gallery h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="container">
+            <h1>Vikram Bhardwaj</h1>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2>Digital Marketing Portfolio</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1551288049-bcc17c73f747" alt="Digital Marketing 1">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7" alt="Digital Marketing 2">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1611162616304-7d0f847288a0" alt="Digital Marketing 3">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e1b1" alt="Digital Marketing 4">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1593642532973-d31b97f2f3d3" alt="Digital Marketing 5">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Digital Marketing 6">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b79906a8167" alt="Digital Marketing 7">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://images.unsplash.com/photo-1618005182386-1b1a6b4b6b6f" alt="Digital Marketing 8">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(8)">
+                    <img src="https://images.unsplash.com/photo-1593642632823-4b9b6b3f3d3b" alt="Digital Marketing 9">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(9)">
+                    <img src="https://images.unsplash.com/photo-1600585154084-4e5e8b1a6b6f" alt="Digital Marketing 10">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(10)">
+                    <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0" alt="Digital Marketing 11">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(11)">
+                    <img src="https://images.unsplash.com/photo-1600585153490-76fb20a32601" alt="Digital Marketing 12">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(12)">
+                    <img src="https://images.unsplash.com/photo-1593642702909-dec73df255d9" alt="Digital Marketing 13">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(13)">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d" alt="Digital Marketing 14">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(14)">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7" alt="Digital Marketing 15">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(15)">
+                    <img src="https://images.unsplash.com/photo-1551288049-bcc17c73f747" alt="Digital Marketing 16">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(16)">
+                    <img src="https://images.unsplash.com/photo-1618005192386-1b1a6b4b6b6f" alt="Digital Marketing 17">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(17)">
+                    <img src="https://images.unsplash.com/photo-1593642532973-d31b97f2f3d3" alt="Digital Marketing 18">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(18)">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Digital Marketing 19">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(19)">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b79906a8167" alt="Digital Marketing 20">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <span class="nav-btn prev-btn" onclick="navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></span>
+        <img src="" alt="Full Image" id="lightbox-img">
+        <span class="nav-btn next-btn" onclick="navigateLightbox(1)"><i class="fas fa-chevron-right"></i></span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Vikram Bhardwaj. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox Script -->
+    <script>
+        const images = [
+            'https://images.unsplash.com/photo-1551288049-bcc17c73f747',
+            'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7',
+            'https://images.unsplash.com/photo-1611162616304-7d0f847288a0',
+            'https://images.unsplash.com/photo-1611162617474-5b21e879e1b1',
+            'https://images.unsplash.com/photo-1593642532973-d31b97f2f3d3',
+            'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
+            'https://images.unsplash.com/photo-1626785774573-4b79906a8167',
+            'https://images.unsplash.com/photo-1618005182386-1b1a6b4b6b6f',
+            'https://images.unsplash.com/photo-1593642632823-4b9b6b3f3d3b',
+            'https://images.unsplash.com/photo-1600585154084-4e5e8b1a6b6f',
+            'https://images.unsplash.com/photo-1587440871875-191322ee64b0',
+            'https://images.unsplash.com/photo-1600585153490-76fb20a32601',
+            'https://images.unsplash.com/photo-1593642702909-dec73df255d9',
+            'https://images.unsplash.com/photo-1600585154526-990dced4db0d',
+            'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7',
+            'https://images.unsplash.com/photo-1551288049-bcc17c73f747',
+            'https://images.unsplash.com/photo-1618005192386-1b1a6b4b6b6f',
+            'https://images.unsplash.com/photo-1593642532973-d31b97f2f3d3',
+            'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
+            'https://images.unsplash.com/photo-1626785774573-4b79906a8167'
+        ];
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            currentIndex = index;
+            img.src = images[currentIndex];
+            lightbox.classList.add('active');
+
+            // Add swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            lightbox.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            lightbox.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > 50) navigateLightbox(1); // Swipe left
+                if (touchEndX - touchStartX > 50) navigateLightbox(-1); // Swipe right
+            });
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        function navigateLightbox(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            const img = document.getElementById('lightbox-img');
+            img.src = images[currentIndex];
+        }
+    </script>
+</body>
+</html>

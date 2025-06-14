@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikram Bhardwaj - Graphic Design Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a5b4fc;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 6rem 1rem 4rem;
+            background-color: white;
+        }
+
+        .gallery .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        .lightbox .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox .close-btn:hover {
+            color: #a5b4fc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .gallery h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="container">
+            <h1>Vikram Bhardwaj</h1>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2>Graphic Design Portfolio</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1626785774573-4b79906a8167')">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b79906a8167" alt="Graphic Design 1">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Graphic Design 2">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1618005182386-1b1a6b4b6b6f')">
+                    <img src="https://images.unsplash.com/photo-1618005182386-1b1a6b4b6b6f" alt="Graphic Design 3">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1593642532973-d31b97f2f3d3')">
+                    <img src="https://images.unsplash.com/photo-1593642532973-d31b97f2f3d3" alt="Graphic Design 4">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1611162617474-5b21e879e1b1')">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e1b1" alt="Graphic Design 5">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154084-4e5e8b1a6b6f')">
+                    <img src="https://images.unsplash.com/photo-1600585154084-4e5e8b1a6b6f" alt="Graphic Design 6">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1593642632823-4b9b6b3f3d3b')">
+                    <img src="https://images.unsplash.com/photo-1593642632823-4b9b6b3f3d3b" alt="Graphic Design 7">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1618005192386-1b1a6b4b6b6f')">
+                    <img src="https://images.unsplash.com/photo-1618005192386-1b1a6b4b6b6f" alt="Graphic Design 8">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Graphic Design 9">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1626785774573-4b79906a8167')">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b79906a8167" alt="Graphic Design 10">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1611162617474-5b21e879e1b1')">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e1b1" alt="Graphic Design 11">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1593642532973-d31b97f2f3d3')">
+                    <img src="https://images.unsplash.com/photo-1593642532973-d31b97f2f3d3" alt="Graphic Design 12">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154084-4e5e8b1a6b6f')">
+                    <img src="https://images.unsplash.com/photo-1600585154084-4e5e8b1a6b6f" alt="Graphic Design 13">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1618005182386-1b1a6b4b6b6f')">
+                    <img src="https://images.unsplash.com/photo-1618005182386-1b1a6b4b6b6f" alt="Graphic Design 14">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1593642632823-4b9b6b3f3d3b')">
+                    <img src="https://images.unsplash.com/photo-1593642632823-4b9b6b3f3d3b" alt="Graphic Design 15">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1587440871875-191322ee64b0')">
+                    <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0" alt="Graphic Design 16">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585153490-76fb20a32601')">
+                    <img src="https://images.unsplash.com/photo-1600585153490-76fb20a32601" alt="Graphic Design 17">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1611162616304-7d0f847288a0')">
+                    <img src="https://images.unsplash.com/photo-1611162616304-7d0f847288a0" alt="Graphic Design 18">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1593642702909-dec73df255d9')">
+                    <img src="https://images.unsplash.com/photo-1593642702909-dec73df255d9" alt="Graphic Design 19">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154526-990dced4db0d')">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d" alt="Graphic Design 20">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <img src="" alt="Full Image" id="lightbox-img">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Vikram Bhardwaj. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox Script -->
+    <script>
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

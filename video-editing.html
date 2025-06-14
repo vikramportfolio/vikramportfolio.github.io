@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikram Bhardwaj - Video Editing Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a5b4fc;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 6rem 1rem 4rem;
+            background-color: white;
+        }
+
+        .gallery .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .play-icon {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox iframe {
+            width: 90%;
+            height: 90%;
+            max-width: 800px;
+            max-height: 450px;
+            border-radius: 0.5rem;
+            border: none;
+        }
+
+        .lightbox .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox .close-btn:hover {
+            color: #a5b4fc;
+        }
+
+        .lightbox .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 0.5rem;
+        }
+
+        .lightbox .nav-btn:hover {
+            color: #a5b4fc;
+        }
+
+        .lightbox .prev-btn {
+            left: 1rem;
+        }
+
+        .lightbox .next-btn {
+            right: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .gallery h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox iframe {
+                width: 95%;
+                height: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="container">
+            <h1>Vikram Bhardwaj</h1>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2>Video Editing Portfolio</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Video Editing 1">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://img.youtube.com/vi/9bZkp7q19f0/mqdefault.jpg" alt="Video Editing 2">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://img.youtube.com/vi/kxyi2ZOqYyk/mqdefault.jpg" alt="Video Editing 3">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://img.youtube.com/vi/3tmd-ClpJxA/mqdefault.jpg" alt="Video Editing 4">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://img.youtube.com/vi/86YLFOog4Ro/mqdefault.jpg" alt="Video Editing 5">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://img.youtube.com/vi/ZXsQAXx_ao0/mqdefault.jpg" alt="Video Editing 6">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://img.youtube.com/vi/8hly31xKli0/mqdefault.jpg" alt="Video Editing 7">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://img.youtube.com/vi/7wfYIMyS_dI/mqdefault.jpg" alt="Video Editing 8">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(8)">
+                    <img src="https://img.youtube.com/vi/5iaYLCiq5RM/mqdefault.jpg" alt="Video Editing 9">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(9)">
+                    <img src="https://img.youtube.com/vi/8MgpE2DTTKA/mqdefault.jpg" alt="Video Editing 10">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(10)">
+                    <img src="https://img.youtube.com/vi/YoHD9XEInc0/mqdefault.jpg" alt="Video Editing 11">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(11)">
+                    <img src="https://img.youtube.com/vi/1G4isv_Fylg/mqdefault.jpg" alt="Video Editing 12">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(12)">
+                    <img src="https://img.youtube.com/vi/Ok5h12moQiE/mqdefault.jpg" alt="Video Editing 13">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(13)">
+                    <img src="https://img.youtube.com/vi/6M5VXKLf4D4/mqdefault.jpg" alt="Video Editing 14">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(14)">
+                    <img src="https://img.youtube.com/vi/9YffrCViTVk/mqdefault.jpg" alt="Video Editing 15">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(15)">
+                    <img src="https://img.youtube.com/vi/2Vv-BfVoq4g/mqdefault.jpg" alt="Video Editing 16">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(16)">
+                    <img src="https://img.youtube.com/vi/0eDaQOWN6xA/mqdefault.jpg" alt="Video Editing 17">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(17)">
+                    <img src="https://img.youtube.com/vi/3yM5u7y-odk/mqdefault.jpg" alt="Video Editing 18">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(18)">
+                    <img src="https://img.youtube.com/vi/4c1lqFX_7s8/mqdefault.jpg" alt="Video Editing 19">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(19)">
+                    <img src="https://img.youtube.com/vi/5tW6kA-Pp0M/mqdefault.jpg" alt="Video Editing 20">
+                    <i class="fas fa-play-circle play-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <span class="nav-btn prev-btn" onclick="navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></span>
+        <iframe id="lightbox-video" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <span class="nav-btn next-btn" onclick="navigateLightbox(1)"><i class="fas fa-chevron-right"></i></span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Vikram Bhardwaj. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox Script -->
+    <script>
+        const videos = [
+            'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            'https://www.youtube.com/embed/9bZkp7q19f0',
+            'https://www.youtube.com/embed/kxyi2ZOqYyk',
+            'https://www.youtube.com/embed/3tmd-ClpJxA',
+            'https://www.youtube.com/embed/86YLFOog4Ro',
+            'https://www.youtube.com/embed/ZXsQAXx_ao0',
+            'https://www.youtube.com/embed/8hly31xKli0',
+            'https://www.youtube.com/embed/7wfYIMyS_dI',
+            'https://www.youtube.com/embed/5iaYLCiq5RM',
+            'https://www.youtube.com/embed/8MgpE2DTTKA',
+            'https://www.youtube.com/embed/YoHD9XEInc0',
+            'https://www.youtube.com/embed/1G4isv_Fylg',
+            'https://www.youtube.com/embed/Ok5h12moQiE',
+            'https://www.youtube.com/embed/6M5VXKLf4D4',
+            'https://www.youtube.com/embed/9YffrCViTVk',
+            'https://www.youtube.com/embed/2Vv-BfVoq4g',
+            'https://www.youtube.com/embed/0eDaQOWN6xA',
+            'https://www.youtube.com/embed/3yM5u7y-odk',
+            'https://www.youtube.com/embed/4c1lqFX_7s8',
+            'https://www.youtube.com/embed/5tW6kA-Pp0M'
+        ];
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            const lightbox = document.getElementById('lightbox');
+            const video = document.getElementById('lightbox-video');
+            currentIndex = index;
+            video.src = videos[currentIndex] + '?autoplay=1';
+            lightbox.classList.add('active');
+
+            // Add swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            lightbox.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            lightbox.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > 50) navigateLightbox(1); // Swipe left
+                if (touchEndX - touchStartX > 50) navigateLightbox(-1); // Swipe right
+            });
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const video = document.getElementById('lightbox-video');
+            video.src = '';
+            lightbox.classList.remove('active');
+        }
+
+        function navigateLightbox(direction) {
+            const video = document.getElementById('lightbox-video');
+            currentIndex = (currentIndex + direction + videos.length) % videos.length;
+            video.src = videos[currentIndex] + '?autoplay=1';
+        }
+    </script>
+</body>
+</html>
