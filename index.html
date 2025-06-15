@@ -22,7 +22,7 @@
         nav {
             background-color: #1e3a8a;
             color: white;
-            padding: 0.75rem 1rem;
+            padding: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -39,32 +39,20 @@
         }
 
         nav h1 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
         nav ul {
-            display: none;
-            list-style: none;
-            gap: 1rem;
-            flex-direction: column;
-            background-color: #1e3a8a;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul.active {
             display: flex;
+            list-style: none;
+            gap: 1.5rem;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: color 0.3s;
         }
 
@@ -72,20 +60,15 @@
             color: #a5b4fc;
         }
 
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
         /* Hero Section */
         #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+            justify-content: center;
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3') no-repeat center center/cover;
             color: white;
+            text-align: center;
             padding: 1rem;
             position: relative;
         }
@@ -104,60 +87,33 @@
         #home > div {
             position: relative;
             z-index: 2;
-            text-align: left;
-            max-width: 90%;
-            margin-left: 1rem;
         }
 
         #home h1 {
-            font-size: 1.75rem;
+            font-size: 2.25rem;
             font-weight: bold;
             margin-bottom: 1rem;
             animation: fadeIn 1s ease-in;
         }
 
-        #home .skills {
-            font-size: 1.25rem; /* Increased by ~4pt */
+        #home p {
+            font-size: 1.125rem;
             margin-bottom: 1.5rem;
-            min-height: 1.8rem; /* Adjusted for larger text */
-            position: relative;
-        }
-
-        #home .skills span {
-            opacity: 0;
-            animation: fadeInOut 5.1s infinite;
-            position: absolute;
-        }
-
-        #home .skills span:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        #home .skills span:nth-child(2) {
-            animation-delay: 1.7s;
-        }
-
-        #home .skills span:nth-child(3) {
-            animation-delay: 3.4s;
         }
 
         #home .btn-group {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.75rem;
+            justify-content: center;
+            gap: 1rem;
         }
 
         #home a {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 9999px;
             transition: all 0.3s;
-            width: 100%;
-            max-width: 200px;
-            text-align: center;
         }
 
         #home a:first-child {
@@ -181,7 +137,7 @@
 
         /* About Section */
         #about {
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             background-color: white;
         }
 
@@ -191,22 +147,22 @@
         }
 
         #about h2 {
-            font-size: 1.5rem;
+            font-size: 1.875rem;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         #about .content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         #about img {
-            width: 10rem;
-            height: 10rem;
+            width: 12rem;
+            height: 12rem;
             border-radius: 50%;
             object-fit: cover;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -214,15 +170,15 @@
         }
 
         #about p {
-            font-size: 1rem;
+            font-size: 1.125rem;
             color: #4b5563;
-            max-width: 90%;
+            max-width: 48rem;
             text-align: center;
         }
 
         /* Portfolio Section */
         #portfolio {
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             background-color: #f3f4f6;
         }
 
@@ -232,16 +188,16 @@
         }
 
         #portfolio h2 {
-            font-size: 1.5rem;
+            font-size: 1.875rem;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .card {
@@ -260,16 +216,16 @@
 
         .card img {
             width: 100%;
-            height: 10rem;
+            height: 12rem;
             object-fit: cover;
         }
 
         .card .content {
-            padding: 0.75rem;
+            padding: 1rem;
         }
 
         .card h3 {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -283,12 +239,11 @@
 
         .card p {
             color: #6b7280;
-            font-size: 0.9rem;
         }
 
         /* Contact Section */
         #contact {
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             background-color: #1e3a8a;
             color: white;
             text-align: center;
@@ -300,21 +255,21 @@
         }
 
         #contact h2 {
-            font-size: 1.5rem;
+            font-size: 1.875rem;
             font-weight: bold;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         #contact p {
-            font-size: 1rem;
-            max-width: 90%;
+            font-size: 1.125rem;
+            max-width: 48rem;
             margin: 0 auto 1.5rem;
         }
 
         #contact .contact-links {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
             margin-bottom: 1.5rem;
         }
 
@@ -325,7 +280,6 @@
             align-items: center;
             justify-content: center;
             transition: color 0.3s;
-            font-size: 0.9rem;
         }
 
         #contact a:hover {
@@ -338,14 +292,13 @@
 
         #contact .resume-btn {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             background-color: white;
             color: #1e3a8a;
             border-radius: 9999px;
             font-weight: 600;
             text-decoration: none;
             transition: background-color 0.3s;
-            font-size: 0.9rem;
         }
 
         #contact .resume-btn:hover {
@@ -356,23 +309,14 @@
         footer {
             background-color: #1f2937;
             color: white;
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
-            font-size: 0.9rem;
         }
 
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; }
-            10% { opacity: 1; }
-            33% { opacity: 1; }
-            43% { opacity: 0; }
-            100% { opacity: 0; }
         }
 
         @keyframes slideIn {
@@ -382,52 +326,12 @@
 
         /* Responsive Design */
         @media (min-width: 768px) {
-            nav h1 {
-                font-size: 1.5rem;
-            }
-
-            nav ul {
-                display: flex;
-                flex-direction: row;
-                position: static;
-                padding: 0;
-                box-shadow: none;
-            }
-
-            nav ul li a {
-                font-size: 1rem;
-            }
-
-            .menu-toggle {
-                display: none;
-            }
-
             #home h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
-            #home .skills {
+            #home p {
                 font-size: 1.25rem;
-            }
-
-            #home .btn-group {
-                flex-direction: row;
-                gap: 1rem;
-            }
-
-            #home a {
-                padding: 0.75rem 1.5rem;
-                font-size: 1rem;
-                width: auto;
-            }
-
-            #home > div {
-                max-width: 50%;
-                margin-left: 2rem;
-            }
-
-            #about h2 {
-                font-size: 1.875rem;
             }
 
             #about .content {
@@ -437,42 +341,10 @@
 
             #about p {
                 text-align: left;
-                max-width: 48rem;
-                font-size: 1.125rem;
-            }
-
-            #about img {
-                width: 12rem;
-                height: 12rem;
-            }
-
-            #portfolio h2 {
-                font-size: 1.875rem;
             }
 
             .grid {
                 grid-template-columns: repeat(3, 1fr);
-            }
-
-            .card img {
-                height: 12rem;
-            }
-
-            .card h3 {
-                font-size: 1.25rem;
-            }
-
-            .card p {
-                font-size: 1rem;
-            }
-
-            #contact h2 {
-                font-size: 1.875rem;
-            }
-
-            #contact p {
-                font-size: 1.125rem;
-                max-width: 48rem;
             }
 
             #contact .contact-links {
@@ -480,57 +352,12 @@
                 justify-content: center;
                 gap: 1.5rem;
             }
-
-            #contact a {
-                font-size: 1rem;
-            }
-
-            #contact .resume-btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 1rem;
-            }
         }
 
         @media (max-width: 767px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            #home {
-                background-size: cover;
-                background-position: center center;
-                min-height: 100vh;
-                padding: 0.5rem;
-                justify-content: center; /* Center horizontally */
-                align-items: flex-end; /* Align to bottom */
-            }
-
-            #home > div {
-                max-width: 85%;
-                padding-bottom: 1rem; /* Offset from bottom */
-                text-align: center; /* Center text/buttons */
-            }
-
-            #home h1 {
-                font-size: 1.25rem;
-                margin-bottom: 0.75rem;
-            }
-
-            #home .skills {
-                font-size: 1rem; /* Increased by ~4pt */
-                margin-bottom: 1rem;
-                min-height: 1.5rem; /* Adjusted for larger text */
-            }
-
-            #home .btn-group {
-                align-items: center; /* Center buttons */
+            nav ul {
+                flex-direction: column;
                 gap: 0.5rem;
-            }
-
-            #home a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-                max-width: 160px;
             }
         }
     </style>
@@ -540,7 +367,6 @@
     <nav>
         <div class="container">
             <h1>Vikram Bhardwaj</h1>
-            <i class="fas fa-bars menu-toggle"></i>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -554,11 +380,7 @@
     <section id="home">
         <div>
             <h1>Hi, I'm Vikram Bhardwaj</h1>
-            <p class="skills">
-                <span>Graphic Designer <i class="fas fa-paint-brush"></i></span>
-                <span>Video Editor <i class="fas fa-video"></i></span>
-                <span>Digital Marketer <i class="fas fa-chart-line"></i></span>
-            </p>
+            <p>Graphic Designer <i class="fas fa-paint-brush"></i> | Video Editor <i class="fas fa-video"></i> | Digital Marketer <i class="fas fa-chart-line"></i></p>
             <div class="btn-group">
                 <a href="#portfolio">View My Work</a>
                 <a href="resume.html" target="_blank">View Resume</a>
@@ -571,7 +393,7 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="content">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGVO_dnqosp-w/profile-displayphoto-shrink_800_800/B4EZcsfSfbHYAk-/0/1748798090464?e=1755129600&v=beta&t=VjVo3J7BTMaGOtzB4qfi6qJRNBOW4jsJafRCJvQca_4" alt="About Vikram">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGVO_dnqosp-w/profile-displayphoto-shrink_800_800/B4EZcsfSfbHYAk-/0/1748798090464?e=1755734400&v=beta&t=a6xRl2n0AlngAjTgQg323kqDarD4XXhIt0shKXudNiI" alt="About Vikram">
                 <p>I'm Vikram Bhardwaj, a passionate creative with over 6 years of experience in Graphic Design, Video Editing, and Digital Marketing. I specialize in crafting visually stunning designs, engaging video content, and strategic marketing campaigns that drive results and connect with audiences.</p>
             </div>
         </div>
@@ -602,7 +424,7 @@
                 <a href="digital-marketing.html" class="card">
                     <img src="https://s3-ap-south-1.amazonaws.com/ricedigitals3bucket/AUPortalContent/2021/05/22121232/Untitled-design-391.png" alt="Digital Marketing Sample">
                     <div class="content">
-                        <h3><i class="fas fa-chart-line"></i> Digital Marketer</h3>
+                        <h3><i class="fas fa-chart-line"></i> Digital Marketing</h3>
                         <p>Created targeted ad campaigns and SEO strategies to boost online engagement and conversions.</p>
                     </div>
                 </a>
@@ -614,36 +436,31 @@
     <section id="contact">
         <div class="container">
             <h2>Get in Touch</h2>
-            <p>Ready to collaborate? Let's connect!</p>
+            <p>Ready to collaborate? Drop me a message, and let's create something amazing!</p>
             <div class="contact-links">
-                <a href="mailto:vikram@example.com"><i class="fas fa-envelope"></i> vikram@example.com</a>
-                <a href="tel:+911234567890"><i class="fas fa-phone"></i> +91 123 456 789</a>
-                <a href="https://linkedin.com"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://behance.net"><i class="fab fa-behance"></i> Behance</a>
+                <a href="mailto:vikrambhardwaj98@gmail.com"><i class="fas fa-envelope"></i> vikrambhardwaj98@gmail.com</a>
+                <a href="tel:+917050206708"><i class="fas fa-phone"></i> +91 7050206708</a>
+                <a href="https://www.linkedin.com/in/vikram-bhardwaj-190586201/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://www.behance.net/vikrambhardwaj7"><i class="fab fa-behance"></i> Behance</a>
             </div>
-            <a href="resume.html" target="_blank" class="resume-btn">Resume</a>
+            <a href="resume.html" target="_blank" class="resume-btn">View My Resume</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2023 Vikram Bhardwaj. All rights reserved.</p>
+        <p>© 2025 Vikram Bhardwaj. All rights reserved.</p>
     </footer>
 
-    <!-- Smooth Scroll and Menu Toggle Script -->
+    <!-- Smooth Scroll Script -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                document.querySelector('nav ul').classList.remove('active');
             });
-        });
-
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('nav ul').classList.toggle('active');
         });
     </script>
 </body>
